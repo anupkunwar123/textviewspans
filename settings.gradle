@@ -1,0 +1,2 @@
+rootProject.name='TextViewPlayGround'
+include ':app'
