@@ -12,10 +12,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val fragments =
-            listOf(Simple(), TypeWriter(), Pattern(), ColorGradient(), ColorGradientAnimating())
-        val adapter = Adapter(fragments, supportFragmentManager)
-        pager.adapter = adapter
+
+        listOf(
+            Simple(),
+            TypeWriter(),
+            Pattern(),
+            ColorGradient(),
+            ColorGradientAnimating(),
+            Emoji()
+        )
+            .also {
+                val adapter = Adapter(it, supportFragmentManager)
+                pager.adapter = adapter
+            }
 
 
     }

@@ -3,8 +3,10 @@ package com.anupkunwar.textviewplayground
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.os.Bundle
+import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.format.DateUtils
+import android.text.style.RelativeSizeSpan
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
@@ -27,6 +29,12 @@ class ColorGradientAnimating : AbstractFragment() {
                     " animating.", ShaderSpan(percent = 100f - it.animatedValue as Float),
                     SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
+            builder.setSpan(
+                RelativeSizeSpan(2.0f),
+                0,
+                builder.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
             setSpan(builder)
         }
         animator.interpolator = LinearInterpolator()
